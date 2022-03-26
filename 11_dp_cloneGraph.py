@@ -2,6 +2,9 @@ class Solution:
     def cloneGraph(self, node: 'Node') -> 'Node':
         mapper = {}
         
+        if not node:
+            return node
+
         def dfs(n):
             if n in mapper:
                 return mapper[n]
