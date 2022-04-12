@@ -9,17 +9,11 @@ class Solution:
         
         while left < right and top < bottom :
             for i in range( right-left):
-                temp1 = matrix[top+i][right]
-                matrix[top+i][right] = matrix[top][left+i]
-                
-                temp2 = matrix[bottom][right-i]
-                matrix[bottom][right-i] = temp1
-                
-                temp3 = matrix[bottom-i][left]
-                matrix[bottom-i][left] = temp2
-                
-                matrix[top][left+i] = temp3
-                
+                temp = matrix[top][left+i]
+                matrix[top][left+i] = matrix[bottom-i][left]
+                matrix[bottom-i][left] = matrix[bottom][right-i]
+                matrix[bottom][right-i] = matrix[top+i][right]
+                matrix[top+i][right] = temp
             
         
             left = left + 1
