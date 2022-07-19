@@ -7,12 +7,11 @@ class Solution:
         closeToOpen = {"}":"{","]":"[", ")":"(" }
         
         for c in s:
-            if c in closeToOpen:
-                if stack and stack[-1] == closeToOpen[c]:
-                    stack.pop()
-                else:
-                    return False
+            if c in closeToOpen and stack and stack[-1] == closeToOpen[c]:
+                stack.pop()
+            elif c in closeToOpen:
+                return False
             else:
                 stack.append(c)
         
-        return len(stack) == 0
+        return len(stack) == 0 
